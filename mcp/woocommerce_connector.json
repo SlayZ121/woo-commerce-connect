@@ -1,0 +1,51 @@
+{
+  "name": "woocommerce_private_connector",
+  "version": "1.0.0",
+  "description": "MCP-like tool specification for reading WooCommerce orders and inventory from a private store.",
+  "tools": [
+    {
+      "name": "woo_list_orders",
+      "description": "List recent WooCommerce orders.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "per_page": {"type": "integer", "default": 10},
+          "status": {"type": "string"}
+        }
+      }
+    },
+    {
+      "name": "woo_get_order",
+      "description": "Fetch a single order by ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": {"type": "integer"}
+        },
+        "required": ["order_id"]
+      }
+    },
+    {
+      "name": "woo_search_products",
+      "description": "Search WooCommerce products by name or SKU.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {"type": "string"},
+          "per_page": {"type": "integer", "default": 10}
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "woo_list_inventory",
+      "description": "List in-stock product inventory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "per_page": {"type": "integer", "default": 10}
+        }
+      }
+    }
+  ]
+}
